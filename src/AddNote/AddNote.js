@@ -1,6 +1,7 @@
 import React from 'react';
 import ApiContext from '../ApiContext'
 import config from '../config'
+import './AddNote.css'
 
 export default class AddNote extends React.Component {
    state= {error:null, name:{value: '', touched: false}};
@@ -55,9 +56,9 @@ export default class AddNote extends React.Component {
         })
             console.log(dropdown)
       return (
-        <div className="Note-form">
+        <div className="Note-form-wrapper">
           <h2>Create a note</h2>
-          <form onSubmit={(e) => this.handleFormSubmit(e)}>
+          <form className='note-form' onSubmit={(e) => this.handleFormSubmit(e)}>
             <label htmlFor="name" >Name</label>
             <input id="name" name="name"  value={this.state.name.value} onChange={(e)=> this.setName(e.target.value)} />
             {this.state.name.touched && this.validateName()}

@@ -1,0 +1,61 @@
+h2 {
+    color: white;
+    padding-left: 15px;
+  }
+  
+  label {
+    color: white;
+    display:block;
+    margin-bottom: 10px;
+    
+  }
+  
+  #name {
+    display:block;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+  }
+  
+  .Note-form-wrapper {
+    color: rgb(222, 222, 222);
+  }
+  
+  .note-form {
+  
+  padding: 15px;
+  background-color:#1D3656;
+  width: 335px;
+  }
+  
+  textarea#content {
+      width: 100%;
+      padding: 8px;
+    font-size: 14px;
+  }
+
+  button {
+    background-color:#010D1E;
+    color:#cacaca;
+    font-size: 18px;
+    padding:8px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+  }
+  
+  button:hover {
+    background-color:#29862E;
+    color: white;
+  }
+
+  select#folder {
+    display:block;
+    margin-bottom: 30px;
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    height: 33px;
+    
+  }
