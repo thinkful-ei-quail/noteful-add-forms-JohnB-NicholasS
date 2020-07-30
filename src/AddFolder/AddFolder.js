@@ -32,10 +32,10 @@ export default class AddForm extends React.Component {
   render() {
     return (
       <div className="folder-form">
-        <h2>Creat a folder</h2>
+        <h2>Create a folder</h2>
         <form onSubmit={(e) => this.handleFormSubmit(e)}>
           <label htmlFor="name">Name</label>
-          <input id="name" name="name" />
+          <input id="name" name="name" required />
           <button type="submit">Add folder</button>
         </form>
       </div>
