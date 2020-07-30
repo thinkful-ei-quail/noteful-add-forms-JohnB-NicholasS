@@ -3,16 +3,16 @@ import ApiContext from '../ApiContext'
 import config from '../config'
 
 export default class AddNote extends React.Component {
-   state= {error:null, name:{value: ''}};
+   state= {error:null, name:{value: '', touched: false}};
    setName = name => {
-       this.setState({name: {value:name}});
+       this.setState({name: {value:name, touched: true}});
    }; 
     static contextType = ApiContext
 
    validateName = () => {
        let name = this.state.name.value;
-       if ( !name.length > 0 ) {
-           return 'Name is required';
+       if ( name.length === 0 ) {
+           return <div style={{color:"red"}} className='validationError'>*name is required</div>;
        }
    }
 
@@ -59,8 +59,8 @@ export default class AddNote extends React.Component {
           <h2>Create a note</h2>
           <form onSubmit={(e) => this.handleFormSubmit(e)}>
             <label htmlFor="name" >Name</label>
-            <input id="name" name="name"  value={this.state.name.value} onChange={(e)=> this.setName(e.target.value)} required />
-            {this.validateName() && <div style={{color:"red"}} className='validationError'>*name is required</div>}
+            <input id="name" name="name"  value={this.state.name.value} onChange={(e)=> this.setName(e.target.value)} />
+            {this.state.name.touched && this.validateName()}
             <label htmlFor="content">Content</label>
             <textarea id="content" name="content" />
             <label htmlFor="folder">Folder</label>
@@ -68,7 +68,7 @@ export default class AddNote extends React.Component {
                 <option value="null">...</option>
                     {dropdown}
             </select>
-            <button type="submit">Add note</button>
+            <button type="submit" disabled={this.validateName()}>Add note</button>
           </form>
           {this.state.error && <div style={{color:"red"}} className='formError'>{this.state.error}</div>}
         </div>
