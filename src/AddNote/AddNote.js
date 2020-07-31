@@ -1,6 +1,7 @@
 import React from 'react';
 import ApiContext from '../ApiContext'
 import config from '../config'
+import PropTypes from 'prop-types'
 import './AddNote.css'
 
 export default class AddNote extends React.Component {
@@ -54,7 +55,7 @@ export default class AddNote extends React.Component {
             )
            
         })
-            console.log(dropdown)
+            
       return (
         <div className="Note-form-wrapper">
           <h2>Create a note</h2>
@@ -75,4 +76,8 @@ export default class AddNote extends React.Component {
         </div>
       )
     }
+}
+
+AddNote.propTypes = {
+  name: PropTypes.string.isRequired
 }
